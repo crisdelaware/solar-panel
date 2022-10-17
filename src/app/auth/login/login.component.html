@@ -1,0 +1,61 @@
+<app-main-page></app-main-page>
+
+<div class="box">
+    <div class="formulario">
+        <form [formGroup]="miFormulario" (ngSubmit)="login()">
+
+            <h1 class="title">Login</h1>
+
+            <div class="container-img">
+                <img class="img-panel" src="../../../assets/panel-solar.png" alt="">
+            </div>
+
+            <div class="email-form">
+                <label>Email</label>
+                <input  type="email"  formControlName="email" >
+                
+
+
+            <div *ngIf="mail?.invalid && (mail?.dirty || mail?.touched)"
+            class="alert alert-danger msg-error">
+
+            <div *ngIf="mail?.errors?.['required']">
+                El email es obligatorio
+            </div>
+
+            <div *ngIf="mail?.errors?.['email']">
+                El email es invalido
+            </div>
+
+        </div>
+
+            </div>
+            
+            <div class="email-form">
+                <label>Password</label>
+                <input type="password" formControlName="password">
+
+                <div *ngIf="pass?.invalid && (pass?.dirty || pass?.touched)"
+                class="alert alert-danger msg-error">
+
+                <div *ngIf="pass?.errors?.['required']">
+                    La contraseña es obligatoria
+                </div>
+
+
+            </div>
+            </div>
+
+            <div class="div-btn">
+                <button class="btn-submit" type="submit">Login</button>
+            </div>
+        </form>
+
+        <button class="google" type="submit" (click)="loginGoogle()">Google</button>
+
+        <div class="footer">
+            <a routerLink="/register">¿No tienes cuenta?</a>
+        </div>
+        
+    </div>
+</div>
